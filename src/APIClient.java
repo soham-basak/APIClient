@@ -16,7 +16,7 @@ public class APIClient {
 
             if(responseCode == HttpURLConnection.HTTP_OK){
                 BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-                String inputLine = null; // Initialize the variable
+                String inputLine = null;
                 StringBuilder response = new StringBuilder();
 
                 while ((inputLine = in.readLine()) != null) {
@@ -25,8 +25,7 @@ public class APIClient {
 
                 in.close();
 
-
-
+                // Converting the response data to JSON object
                 JSONParser parser = new JSONParser();
                 JSONObject jsonObject = (JSONObject) parser.parse(response.toString());
 
